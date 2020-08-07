@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  ubuntu-yarn:
+    container_name: mybuntu
+    user: root
+    build:
+      context: .
+    volumes:
+      - .:/app
+      -  /d/Repos/.ssh:/home/user/.ssh:ro
+    command: >
+      sh -c "/bin/bash"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
