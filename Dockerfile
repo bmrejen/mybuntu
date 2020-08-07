@@ -75,5 +75,4 @@ RUN gem install rake bundler rspec rubocop rubocop-performance pry hub colored o
 #RUN apt-get update -y && apt-get install -y postgresql postgresql-contrib
 
 ENV DEBIAN_FRONTEND teletype
-
 CMD /bin/zsh
