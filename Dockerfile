@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.04
 
 
 # In China, replace the url between the 2nd and 3rd '@' with these lines
@@ -25,10 +25,11 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 # require curl
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 
+# for ubuntu 18.04 use libgdbm4 libgdbm-dev
 RUN apt-get install -y yarn git tzdata apt-utils zsh nodejs npm vim \
     imagemagick jq build-essential \
     libxml2-dev libxslt1-dev libreadline-dev ruby-all-dev \
-    autoconf bison libyaml-dev libreadline6-dev libncurses5-dev libgdbm5 libgdbm-dev sudo lsb-release
+    autoconf bison libyaml-dev libreadline6-dev libncurses5-dev  sudo lsb-release
 
 RUN mkdir /app
 
@@ -38,6 +39,8 @@ RUN addgroup --system user --gid 1000 && adduser --uid 1000 --system --group  us
 RUN echo "user:user" | chpasswd && adduser user sudo
 
 RUN chown -R user:user /app && chmod -R 755 /app
+#RUN cat /root/.ssh/id_ed25519.pub
+#RUN chown -R root:root /root/.ssh && chmod -R 400 /root/.ssh
 
 # Install Zsh
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
@@ -75,4 +78,5 @@ RUN gem install rake bundler rspec rubocop rubocop-performance pry hub colored o
 #RUN apt-get update -y && apt-get install -y postgresql postgresql-contrib
 
 ENV DEBIAN_FRONTEND teletype
+COPY robbyrussell.zsh-theme /root/.oh-my-zsh/themes
 CMD /bin/zsh

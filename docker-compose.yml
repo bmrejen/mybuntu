@@ -8,7 +8,10 @@ services:
       context: .
     volumes:
       - .:/app
-      -  /d/Repos/.ssh:/root/.ssh:ro
+      -  /d/Repos/.ssh:/root/.ssh
+    ports:
+      - "8080:8080"
+      - "8081:8081"
     command: >
       sh -c "/bin/bash"
     stdin_open: true # docker run -i
