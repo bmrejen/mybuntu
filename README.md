@@ -5,7 +5,11 @@ It follows all the setup that you need from the [official Wagon instructions](ht
 
 ## How to use
 
-Clone this repo, cd into it and type the following commands:
+1. Clone this repo and cd into it 
+
+2. Look into the Dockerfile. You need to change line 49 to put your own personal info. If you are in China, there are also some lines you need to uncomment for better performance. 
+
+3. When you are done, just type the following commands:
 
     docker-compose up -d
     docker exec -ti mubuntu /bin/zsh
