@@ -10,4 +10,4 @@ Clone this repo, cd into it and type the following commands:
     docker-compose up -d
     docker exec -ti mubuntu /bin/zsh
 
-That's it!
+That's all. You can now code inside this space and clone all your repos here - you have all you need: Ubuntu, Ruby, RVM etc.
