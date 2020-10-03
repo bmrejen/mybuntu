@@ -13,7 +13,6 @@ It follows all the setup that you need from the [official Wagon instructions](ht
 
 
         docker-compose up -d
-
         docker exec -ti mybuntu /bin/zsh 
 
 That's all. You can now code inside this space and clone all your repos here - you have all you need: Ubuntu, Ruby, RVM etc.
